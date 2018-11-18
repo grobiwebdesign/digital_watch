@@ -5,7 +5,7 @@ html, body {
   height: 100%;
 }
     body{
-      background-image: url(../imgs/louvre.jpg);
+      background-image: url(../imgs/icegiant.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-color: #333
@@ -31,15 +31,15 @@ html, body {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .time {font-size: 2.4rem;}
+    .time {font-size: 2rem;}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .time {font-size: 4rem;}
+    .time {font-size: 3rem;}
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .time {font-size: 5.5rem;}
+    .time {font-size: 4rem;}
 } 
