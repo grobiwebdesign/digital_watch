@@ -18,7 +18,7 @@
            m = (m < 10) ? "0" + m : m;
            s = (s < 10) ? "0" + s : s;
         
-           var time = h + " | " + m + " | " + s + " " + session;
+           var time = h + " : " + m + /*" : " + s + */" " + session;
            document.getElementById("myClock").innerText = time; //for firefox users
            document.getElementById("myClock").textContent = time; // for I.E users
 
