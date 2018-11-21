@@ -7,12 +7,13 @@ html, body {
     body{
       background-image: url(../imgs/icegiant.jpg);
       background-repeat: no-repeat;
+      background-size: cover;
       background-attachment: fixed;
       background-color: #333
       background-position: center;
     }
 
-      .time, .today{
+      .time{
         position: absolute;
         top: 50%;
         left: 50%;
@@ -24,22 +25,22 @@ html, body {
 
       }
 
- /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .time {font-size: 1.5rem;}
+ /* Extra small devices (phones, 320px and down) */
+@media only screen and (max-width: 320px) {
+    .time {font-size: 3rem;}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .time {font-size: 2rem;}
+    .time {font-size: 5rem;}
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 768px and up) 
 @media only screen and (min-width: 768px) {
     .time {font-size: 3rem;}
-} 
+} */
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (laptops/desktops, 992px and up) 
 @media only screen and (min-width: 992px) {
-    .time {font-size: 4rem;}
-} 
+    .time {font-size: 7rem;}
+} */
