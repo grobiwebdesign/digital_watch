@@ -12,7 +12,7 @@ html, body {
       background-position: center;
     }
 
-      .time{
+      .time, .today{
         position: absolute;
         top: 50%;
         left: 50%;
