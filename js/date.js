@@ -121,7 +121,7 @@ function showDate() {
 
 			// Wales
 
-			if (d === 1 && m === "Mar"){
+			else if (d === 1 && m === "Mar"){
 
 				mEssage.innerHTML = "St Davids Day";
 			
@@ -129,7 +129,7 @@ function showDate() {
 
 			// St Paddies Day
 
-			if (d === 17 && m === "Mar"){
+			else if (d === 17 && m === "Mar"){
 
 				mEssage.innerHTML = "St Patricks Day";
 			
@@ -137,7 +137,7 @@ function showDate() {
 
 			// Halloween
 
-			if (d === 31 && m === "Oct"){
+			else if (d === 31 && m === "Oct"){
 
 				mEssage.innerHTML = "Happy Halloween!";
 			
@@ -145,7 +145,7 @@ function showDate() {
 
 			// Firework Night
 
-			if (d === 5 && m === "Nov"){
+			else if (d === 5 && m === "Nov"){
 
 				mEssage.innerHTML = "Guy Fawlkes Day";
 			
@@ -153,7 +153,7 @@ function showDate() {
 
 			// Scotland day
 
-			if (d === 30 && m === "Nov"){
+			else if (d === 30 && m === "Nov"){
 
 				mEssage.innerHTML = "St Andrews Day";
 			
@@ -161,7 +161,7 @@ function showDate() {
 
 			// XMAS
 
-			if (d === 25 && m === "Dec"){
+			else if (d === 25 && m === "Dec"){
 
 				mEssage.innerHTML = "Merry Christmas!";
 			
@@ -169,7 +169,7 @@ function showDate() {
 
 			// Boxing
 
-			if (d === 26 && m === "Dec"){
+			else if (d === 26 && m === "Dec"){
 
 				mEssage.innerHTML = "Boxing Day";
 			
@@ -177,17 +177,17 @@ function showDate() {
 
 			// December Bank
 
-			if (d === 28 && m === "Dec"){
+			else if (d === 28 && m === "Dec"){
 
 				mEssage.innerHTML = "Bank Holiday";
 			
 			}  
 
-				else {
+			else {
 
 					document.getElementById('holidayDate').style.display="none"; 
 	 
-				} 	
+			}	
 }
 
 showDate();
