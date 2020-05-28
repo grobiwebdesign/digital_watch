@@ -25,9 +25,19 @@ body {
 
 @media screen and (min-width: 320px) and (max-width: 414px) {
   .datetime {
-    min-width: 50%;
+    min-width: 70%;
   }
 }
+.datetime {
+  color: #FBFBFB;
+  border: 2px solid #FBFBFB;
+  border-radius: 4px;
+}
+
+#demo {
+  font-size: 2.5rem;
+}
+
 .today {
   font-size: 5rem;
 }
@@ -40,14 +50,18 @@ body {
   font-size: 2.5rem;
 }
 
-.datetime {
-  color: #FBFBFB;
-  border: 2px solid #FBFBFB;
-  border-radius: 4px;
-}
+@media screen and (min-width: 320px) and (max-width: 414px) {
+  .today {
+    font-size: 2.1rem;
+  }
 
-#demo {
-  font-size: 2.5rem;
+  .time {
+    font-size: 1.6rem;
+  }
+
+  #holidaydate {
+    font-size: 1.6rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
