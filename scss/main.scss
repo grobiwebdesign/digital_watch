@@ -1,0 +1,15 @@
+// Base files 
+
+
+@import 'base/variables.scss';
+@import 'base/base.scss';
+@import 'base/mixins.scss';
+
+// Layout files 
+
+@import 'layouts/middle.scss';
+
+// Module files
+
+@import 'modules/components.scss';
+@import 'modules/typography.scss';

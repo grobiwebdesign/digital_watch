@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Indie Flower", cursive;
+}
+
+body {
+  background-color: #070B1D;
+  background-image: url(imgs/icegiant.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.datetime {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  padding: 3.2rem 2.5rem;
+  min-width: 80%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 414px) {
+  .datetime {
+    min-width: 50%;
+  }
+}
+.today {
+  font-size: 5rem;
+}
+
+.time {
+  font-size: 2.5rem;
+}
+
+#holidayDate {
+  font-size: 2.5rem;
+}
+
+.datetime {
+  color: #FBFBFB;
+  border: 2px solid #FBFBFB;
+  border-radius: 4px;
+}
+
+#demo {
+  font-size: 2.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */

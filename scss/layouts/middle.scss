@@ -1,0 +1,17 @@
+.datetime{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    @include padding;
+    min-width: 80%;
+}
+
+// mobile screen
+
+@media screen and (min-width: 320px) and (max-width: 414px) {
+	.datetime{
+		min-width: 50%;
+	}
+}
