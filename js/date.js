@@ -1,193 +1,102 @@
 function showDate() {
-
-	var date = new Date();
-
-	// dd
-
-	var d = date.getDate(); 
-
-	// mmm
-
-	var m = date.getMonth()+1; 
-
-	// yyyy
-
-	var y = date.getFullYear(); 
-
-		//show single digit if less than 10
-
-		if(d < 10){ 
-
-			d = "0" + d;
-
-		}
-
-		// show single digit if less than 10
-
-		if (m  < 10){ 
-
-			m = "0" +  m;
-
-		}
-
-		// Months of the year
-
-		if (m == 1){
-
-			m = "Jan";
-
-		}
-
-		if (m == 2){
-
-			m = "Feb";
-
-		}
-
-		if (m == 3){
-
-			m = "Mar";
-
-		}
-
-		if (m == 4){
-
-			m = "Apr";
-
-		}
-
-		if (m == 5){
-
-			m = "May";
-
-		}
-
-		if (m == 6){
-
-			m = "Jun";
-
-		}
-
-		if (m == 7){
-
-			m = "Jul";
-
-		}
-
-		if (m == 8){
-
-			m = "Aug";
-
-		}
-
-		if (m == 9){
-
-			m = "Sept";
-
-		}
-
-		if (m == 10){
-
-			m = "Oct";
-
-		}
-
-		if (m == 11){
-
-			m = "Nov";
-
-		}
-
-		if (m == 12){
-
-			m = "Dec";
-
-		}
-
-		var today = d + ' . ' + m + ' . ' + y;
-		document.getElementById('todaysDate').innerHTML = today;
-
-		// Holiday dates
-
-		const mEssage = document.getElementById('holidayDate');
-
-			// New Year
-
-			if (d === 1 && m === "Jan"){
-
-				mEssage.innerHTML = "Happy New Year!";
-
-			}
-
-			// Wales
-
-			else if (d === 1 && m === "Mar"){
-
-				mEssage.innerHTML = "St Davids Day";
-			
-			} 
-
-			// St Paddies Day
-
-			else if (d === 17 && m === "Mar"){
-
-				mEssage.innerHTML = "St Patricks Day";
-			
-			} 
-
-			// Halloween
-
-			else if (d === 31 && m === "Oct"){
-
-				mEssage.innerHTML = "Happy Halloween!";
-			
-			}
-
-			// Firework Night
-
-			else if (d === 5 && m === "Nov"){
-
-				mEssage.innerHTML = "Guy Fawlkes Day";
-			
-			} 
-
-			// Scotland day
-
-			else if (d === 30 && m === "Nov"){
-
-				mEssage.innerHTML = "St Andrews Day";
-			
-			}  
-
-			// XMAS
-
-			else if (d === 25 && m === "Dec"){
-
-				mEssage.innerHTML = "Merry Christmas!";
-			
-			} 
-
-			// Boxing
-
-			else if (d === 26 && m === "Dec"){
-
-				mEssage.innerHTML = "Boxing Day";
-			
-			}
-
-			// December Bank
-
-			else if (d === 28 && m === "Dec"){
-
-				mEssage.innerHTML = "Bank Holiday";
-			
-			}  
-
-			else {
-
-					document.getElementById('holidayDate').style.display="none"; 
-	 
-			}	
+    var date = new Date(); // Example: Easter Sunday 2025 (April 20)
+    
+    var d = date.getDate();
+    var m = date.getMonth() + 1;
+    var y = date.getFullYear();
+
+    d = (d < 10) ? "0" + d : d;
+    m = (m < 10) ? "0" + m : m;
+
+    // Months of the year
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    m = monthNames[m - 1];
+
+    var today = d + ' . ' + m + ' . ' + y;
+    document.getElementById('todaysDate').innerHTML = today;
+
+    // Holiday dates
+    const mEssage = document.getElementById('holidayDate');
+    const holidays = {
+        "01-Jan": "Happy New Year!",
+        "25-Jan": "Rabbie Burns Day",
+        "01-Mar": "St Davids Day",
+        "17-Mar": "St Patricks Day",
+        "31-Oct": "Happy Halloween!",
+        "05-Nov": "Bonfire Night",
+        "30-Nov": "St Andrews Day",
+        "25-Dec": "Merry Christmas!",
+        "26-Dec": "Boxing Day",
+        "28-Dec": "Bank Holiday"
+    };
+
+    // Get dynamic Easter Sunday
+    let easter = getEasterSunday(y);
+    let easterMonth = monthNames[easter.month - 1];
+    // Get Parents days
+    let motheringSunday = getMothersDay(y);
+    let fathersDay = getFathersDay(y);
+
+    let key = d + "-" + m;
+    if (holidays[key]) {
+        mEssage.innerHTML = holidays[key];
+        mEssage.style.display = "block";
+    }
+      else if (d === easter.day && m === easterMonth) mEssage.innerHTML = "Easter Sunday!";
+      else if (d === easter.day + 1 && m === easterMonth) {
+        mEssage.innerHTML = "Easter Monday";
+    }
+    else if (d === motheringSunday.day && m === monthNames[motheringSunday.month - 1]) {
+        mEssage.innerHTML = "Happy Mother’s Day";
+    } 
+    else if (d === fathersDay.day && m === monthNames[fathersDay.month - 1]) {
+        mEssage.innerHTML = "Happy Father’s Day";
+    } 
+      else {
+        mEssage.style.display = "none";
+    }
 }
 
+function getEasterSunday(year) {
+    var f = Math.floor,
+        a = year % 19,
+        b = f(year / 100),
+        c = year % 100,
+        d = f(b / 4),
+        e = b % 4,
+        g = f((8 * b + 13) / 25),
+        h = (19 * a + b - d - g + 15) % 30,
+        i = f(c / 4),
+        k = c % 4,
+        l = (32 + 2 * e + 2 * i - h - k) % 7,
+        m = f((a + 11 * h + 22 * l) / 451),
+        month = f((h + l - 7 * m + 114) / 31), // March or April
+        day = ((h + l - 7 * m + 114) % 31) + 1; // Day of month
+
+    return { day, month };
+}
+
+// Calculate UK Mother's Day (Fourth Sunday of Lent)
+function getMothersDay(year) {
+    let easter = getEasterSunday(year);
+    let lentStart = new Date(year, easter.month - 1, easter.day); // Easter Sunday
+    lentStart.setDate(lentStart.getDate() - 42); // Lent starts 40 days before, plus Ash Wednesday
+
+    let motheringSunday = new Date(lentStart);
+    motheringSunday.setDate(lentStart.getDate() + (7 - lentStart.getDay()) % 7 + 21); // Fourth Sunday of Lent
+
+    return { day: motheringSunday.getDate(), month: motheringSunday.getMonth() + 1 };
+}
+
+// Calculate UK Father's Day (Third Sunday of June)
+function getFathersDay(year) {
+    let date = new Date(year, 5, 1); // Start of June (Month 5 in JS)
+    let firstSunday = date.getDate() + ((7 - date.getDay()) % 7); // First Sunday
+    let fathersDay = firstSunday + 14; // Third Sunday
+
+    return { day: fathersDay, month: 6 };
+}
+
+// Update the date every second to transition smoothly at midnight
+setInterval(showDate, 1000);
 showDate();
